@@ -1,6 +1,7 @@
 #!/bin/bash -e
 
 _user=amakeenk
+_cur_dir=$(pwd)
 
 [ $(whoami) != "root" ] && exit 1
 
@@ -23,6 +24,8 @@ sed -i "/home\/tmp/d" /etc/fstab
 
 plymouth-set-default-theme bgrt
 make-initrd
+
+su - ${_user} -c "${_cur_dir}/user-settings.sh ${_user}"
 
 echo "Reboot now? (y/n)"
 read answer
