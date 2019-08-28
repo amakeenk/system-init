@@ -10,6 +10,7 @@ echo "${_user} ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 ln -sv /sbin/reboot /usr/bin/reboot
 ln -sv /sbin/poweroff /usr/bin/poweroff
 
+apt-get update
 apt-get install $(cat pkglist)
 
 mkdir -p /local_repo/x86_64/RPMS.dir
