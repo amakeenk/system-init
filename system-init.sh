@@ -12,6 +12,8 @@ ln -sv /sbin/poweroff /usr/bin/poweroff
 
 apt-get update
 apt-get install $(cat pkglist)
+apt-get remove `apt-cache list-nodeps | grep '^lib[^-]*$'`
+apt-get remove `apt-cache list-nodeps | grep python`
 
 mkdir -p /local_repo/x86_64/RPMS.dir
 chown -R ${_user}:${_user} /local_repo
