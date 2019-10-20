@@ -14,6 +14,7 @@ apt-get update
 apt-get install $(cat pkglist)
 
 mkdir -p /local_repo/x86_64/RPMS.dir
+chown -R ${_user}:${_user} /local_repo
 apt-repo add 'rpm-dir file:/local_repo x86_64 dir'
 
 sed -i "/set backup/d" /etc/vim/vimrc
