@@ -27,8 +27,6 @@ sed -i "/home\/tmp/d" /etc/fstab
 plymouth-set-default-theme bgrt
 make-initrd
 
-su - ${_user} -c "${_cur_dir}/user-settings.sh ${_user}"
-
 echo "Reboot now? (y/n)"
 read answer
 [ ${answer} == y ] && reboot
