@@ -11,6 +11,8 @@ ln -sv /sbin/reboot /usr/bin/reboot
 ln -sv /sbin/poweroff /usr/bin/poweroff
 
 apt-get update
+apt-get dist-upgrade
+update-kernel
 apt-get install $(cat pkglist)
 apt-get remove `apt-cache list-nodeps | grep '^lib[^-]*$'`
 apt-get remove `apt-cache list-nodeps | grep python`
