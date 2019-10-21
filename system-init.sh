@@ -17,11 +17,11 @@ update-kernel
 apt-get install $(cat pkglist)
 while true
 do
-    pkglist=$(apt-cache list-nodeps | egrep "devel|'^lib[^-]*$'|python")
-    if [ -z ${pkglist} ]; then
+    _pkglist=$(apt-cache list-nodeps | egrep "devel|'^lib[^-]*$'|python")
+    if [ -z ${_pkglist} ]; then
         break
     else
-        apt-get remove ${pkglist}
+        apt-get remove ${_pkglist}
     fi
 done
 
