@@ -18,11 +18,11 @@ apt-get install $(cat pkglist)
 while true
 do
     _pkglist=$(apt-cache list-nodeps | egrep "devel|'^lib[^-]*$'|python")
-    if [ -z ${_pkglist} ]
+    if [ -z "${_pkglist}" ]
     then
         break
     else
-        apt-get remove ${_pkglist}
+        apt-get remove "${_pkglist}"
     fi
 done
 
