@@ -1,9 +1,10 @@
 #!/bin/bash -e
 
-_user=amakeenk
+_user=$1
 _cur_dir=$(pwd)
 
-[ $(whoami) != "root" ] && exit 1
+[ -z ${_user} ] && echo "usage: $0 [user]" && exit 1
+[ $(whoami) != "root" ] && echo "This script must be run under root user" && exit 1
 
 echo "${_user} ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
@@ -14,8 +15,15 @@ apt-get update
 apt-get dist-upgrade
 update-kernel
 apt-get install $(cat pkglist)
-apt-get remove `apt-cache list-nodeps | grep '^lib[^-]*$'`
-apt-get remove `apt-cache list-nodeps | grep python`
+while true
+do
+    pkglist=$(apt-cache list-nodeps | egrep "devel|'^lib[^-]*$'|python")
+    if [ -z ${pkglist} ]; then
+        break
+    else
+        apt-get remove ${pkglist}
+    fi
+done
 
 mkdir -p /local_repo/x86_64/RPMS.dir
 chown -R ${_user}:${_user} /local_repo
