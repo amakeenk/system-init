@@ -22,7 +22,7 @@ do
     then
         break
     else
-        apt-get remove "${_pkglist}"
+        apt-get remove ${_pkglist}
     fi
 done
 
