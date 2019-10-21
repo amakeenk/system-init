@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/bin/bash
 
 _user=$1
 _cur_dir=$(pwd)
@@ -18,7 +18,8 @@ apt-get install $(cat pkglist)
 while true
 do
     _pkglist=$(apt-cache list-nodeps | egrep "devel|'^lib[^-]*$'|python")
-    if [ -z ${_pkglist} ]; then
+    if [ -z ${_pkglist} ]
+    then
         break
     else
         apt-get remove ${_pkglist}
@@ -41,5 +42,5 @@ plymouth-set-default-theme bgrt
 make-initrd
 
 echo "Reboot now? (y/n)"
-read answer
-[ ${answer} == y ] && reboot
+read _answer
+[ ${_answer} == y ] && reboot
