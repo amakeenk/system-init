@@ -17,7 +17,7 @@ update-kernel
 apt-get install $(cat pkglist)
 while true
 do
-    _pkglist=$(apt-cache list-nodeps | egrep "devel|'^lib[^-]*$'|python")
+    _pkglist=$(apt-cache list-nodeps | egrep "devel|^lib[^-]*$|python")
     if [ -z "${_pkglist}" ]
     then
         break
