@@ -33,7 +33,6 @@ apt-repo add 'rpm-dir file:/local_repo x86_64 dir'
 sed -i "/set backup/d" /etc/vim/vimrc
 
 hasher-useradd ${_user}
-usermod ${_user} -aG docker
 
 sed -i "/#tmpfs/s/#//" /etc/fstab
 sed -i "/home\/tmp/d" /etc/fstab
