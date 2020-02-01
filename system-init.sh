@@ -1,19 +1,16 @@
-#!/bin/bash
+#!/bin/bash -e
 
 _user=$1
-_cur_dir=$(pwd)
 
 [ -z ${_user} ] && echo "usage: $0 [user]" && exit 1
 [ $(whoami) != "root" ] && echo "This script must be run under root user" && exit 1
 
 echo "${_user} ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
-ln -sv /sbin/reboot /usr/bin/reboot
-ln -sv /sbin/poweroff /usr/bin/poweroff
-
+apt-get remove $(cat pkglist-for-remove)
 apt-get update
 apt-get dist-upgrade
-update-kernel
+update-kernel -t un-def
 apt-get install $(cat pkglist)
 while true
 do
