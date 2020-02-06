@@ -39,4 +39,4 @@ make-initrd
 
 echo "Reboot now? (y/n)"
 read _answer
-[ ${_answer} == y ] && reboot
+[ ${_answer} == "y" ] && reboot

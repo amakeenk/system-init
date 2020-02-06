@@ -19,7 +19,7 @@ apt-scripts
 code
 telegram-desktop
 gtk2-theme-Arc-dark
-plasma5-theme-arc
-plasma5-theme-adapta
+kde5-plasma-theme-arc
+kde5-plasma-theme-adapta
 firefox
 systemd-settings-disable-dumpcore
