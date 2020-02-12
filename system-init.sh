@@ -7,7 +7,7 @@ _user=$1
 
 echo "${_user} ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
-apt-get remove $(cat pkglist-for-remove)
+apt-get remove -D $(cat pkglist-for-remove)
 apt-get update
 apt-get dist-upgrade
 update-kernel -t un-def
