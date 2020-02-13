@@ -19,7 +19,7 @@ do
     then
         break
     else
-        apt-get remove ${_pkglist}
+        apt-get remove -D ${_pkglist}
     fi
 done
 
