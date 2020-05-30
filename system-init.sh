@@ -5,7 +5,8 @@ _user=$1
 [ -z ${_user} ] && echo "usage: $0 [user]" && exit 1
 [ $(whoami) != "root" ] && echo "This script must be run under root user" && exit 1
 
-echo "${_user} ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+echo "${_user} ALL=(ALL) NOPASSWD:ALL" >>/etc/sudoers.d/${_user}
+echo "set completion-ignore-case on" >>/etc/inputrc
 
 apt-get remove -D $(cat pkglist-for-remove)
 apt-get update
