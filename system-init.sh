@@ -35,9 +35,6 @@ hasher-useradd ${_user}
 sed -i "/#tmpfs/s/#//" /etc/fstab
 sed -i "/home\/tmp/d" /etc/fstab
 
-plymouth-set-default-theme bgrt
-make-initrd
-
 echo "Reboot now? (y/n)"
 read _answer
 [ ${_answer} == "y" ] && reboot

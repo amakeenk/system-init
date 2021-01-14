@@ -8,7 +8,6 @@ perl-Gear-Remotes
 virt-viewer
 neofetch
 mackup
-plymouth-theme-bgrt
 kde5-yakuake
 qview
 mellowplayer
@@ -21,11 +20,8 @@ telegram-desktop
 gtk2-theme-Arc-dark
 kde5-plasma-theme-arc
 kde5-plasma-theme-adapta
-firefox
 systemd-settings-disable-dumpcore
 yandex-browser-updater
-kde5-plasma-kwin-effects-yaml
-kde5-plasma-inactiveblur
 kde5-plasma-chili
 girar-utils
 ripgrep
